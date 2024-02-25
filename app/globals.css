@@ -1,35 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
 * {
   margin: 0;
-  padding: 0
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
+  background-color: whitesmoke;
+}
+
+.baselayout {
   display: flex;
-  background-color: black;
+  height: 100vh;
+  gap: 2rem;
 }
 
-.nav-menu {
-  height: 90vh;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: 25px;
-  margin-right: 25px;
-  border-radius: 10px;
-  background-color: grey;
+.sidebar-wrapper {
+  position: relative;
 }
 
-.nav-menu-items {
+.sidebar-wrapper-btn {
+  position: absolute;
+  right: 0;
+  top: 5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border: 1px solid #e5e7eb;
+  background-color: #fff;
+  border-radius: 50%;
   display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  height: 75vh;
-  width: 100px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transform: translateX(50%);
+  font-size: 1rem;
 }
 
-.nav-item {
-  display: inherit;
-  justify-self: center;
-  padding: 10px;
-  margin: 10px;
-  font-size: 40px;
+.sidebar {
+  width: 17rem;
+  height: 100%;
+  padding: 1rem;
+  background-color: #fff;
+  transition: all 0.3 linear;
+}
+
+.sidebar-top {
+  width: min-content;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid;
+}
+
+.sidebar-logo {
+  width: 3.4rem;
+  height: 3.5rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.sidebar-top-title {
+  margin-right: 3rem;
+}
+
+.sidebar-list {
+  list-style: none;
+}
+
+.sidebar-link {
+  display: inline-block;
+  display: flex;
+  font-size: 1rem;
+  text-decoration: none;
+  color: black;
+  padding: 0.8rem 1rem;
+  background-color: #f3f4f6;
+  margin-bottom: 1rem;
+  border-radius: 0.8rem;
+}
+
+.sidebar-icon {
+  font-size: 1.2rem;
+  display: inline-block;
+}
+
+.sidebar-icon-title {
+  margin-left: .5rem;
 }
