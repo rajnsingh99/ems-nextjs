@@ -91,3 +91,21 @@ body {
 .sidebar-icon-title {
   margin-left: .5rem;
 }
+
+.pc-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.pc-wrapper li {
+  display: flex;
+  justify-content: start;
+  list-style-type: none;
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #fff;
+  background-color: #222222;
+}
