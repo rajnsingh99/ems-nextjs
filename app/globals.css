@@ -42,7 +42,7 @@ body {
   width: 17rem;
   height: 100%;
   padding: 1rem;
-  background-color: #fff;
+  background-color: #3b3b3b;
   transition: all 0.3 linear;
 }
 
@@ -95,7 +95,7 @@ body {
 .pc-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -103,9 +103,31 @@ body {
   display: flex;
   justify-content: start;
   list-style-type: none;
-  width: 300px;
-  border-radius: 10px;
+  width: 340px;
+  height: 135px;
+  border-radius: 1.5rem;
   overflow: hidden;
-  border: 2px solid #fff;
+  border: 3px solid red;
   background-color: #222222;
+}
+
+.pc-container {
+  width: inherit;
+  display: flex;
+  gap: 1rem;
+}
+
+.pc-profilepic {
+  height: 100%;
+  width: 125px;
+  padding-right: 0.5rem;
+  background-color: red;
+}
+
+.pc-info-wrapper {
+  height: 100%;
+  display: flex;
+  gap: 3.5rem;
+  flex-direction: column;
+  justify-content: center;
 }

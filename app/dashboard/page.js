@@ -83,6 +83,7 @@ export default function Dashboard() {
                             src="/hacker.png"
                             width={80}
                             height={80}
+                            alt="Employee image"
                             className="sidebar-logo"
                         />
                         <section className="employee-name-wrapper">
@@ -105,6 +106,14 @@ export default function Dashboard() {
                 </ul>
 
                 <ul className="pc-wrapper">
+                    <li><ProfileCard/></li>
+                    <li><ProfileCard/></li>
+                    <li><ProfileCard/></li>
+                    <li><ProfileCard/></li>
+                    <li><ProfileCard/></li>
+                    <li><ProfileCard/></li>
+                    <li><ProfileCard/></li>
+                    <li><ProfileCard/></li>
                     <li><ProfileCard/></li>
                 </ul>
             </div>
