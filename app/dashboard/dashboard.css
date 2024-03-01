@@ -77,19 +77,3 @@ body {
     overflow: hidden;
     background-color: #222222;
 }
-
-/* .employee-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.employee-list li {
-    list-style-type: none;
-    padding: 1rem;
-    width: fit-content;
-    border-radius: 50px;
-    overflow: hidden;
-    background-color: #222222;
-} */

@@ -39,7 +39,7 @@ body {
 }
 
 .sidebar {
-  width: 17rem;
+  width: 15rem;
   height: 100%;
   padding: 1rem;
   background-color: #3b3b3b;
@@ -50,6 +50,7 @@ body {
   width: min-content;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
@@ -68,7 +69,11 @@ body {
 }
 
 .sidebar-list {
+  display: flex;
+  flex-direction: column;
   list-style: none;
+  gap: .5rem;
+  margin-top: 3rem;
 }
 
 .sidebar-link {
@@ -104,7 +109,7 @@ body {
   justify-content: start;
   list-style-type: none;
   width: 340px;
-  height: 135px;
+  height: 125px;
   border-radius: 1.5rem;
   overflow: hidden;
   border: 3px solid red;
