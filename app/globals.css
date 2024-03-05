@@ -156,6 +156,7 @@ body {
   flex-direction: column;
   gap: .3rem;
   margin-top: 1rem;
+  padding: 1rem;
   border-radius: 15px;
   background-color: grey;
 }

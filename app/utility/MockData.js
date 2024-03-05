@@ -1,4 +1,4 @@
-const EMP_INFO_MOCK = [
+export const EMP_INFO_MOCK = [
   {
     first_name: "Raj",
     last_name: "Singh",
@@ -12,7 +12,3 @@ const EMP_INFO_MOCK = [
     pemail: "rajnsingh99@gmail.com",
   },
 ];
-
-exports = {
-  EMP_INFO_MOCK,
-};

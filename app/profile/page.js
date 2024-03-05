@@ -13,15 +13,43 @@ export default function Profile() {
           <section className="profile-form-section">
             <div className="profile-form-section-info">
               <h6>First Name</h6>
-              <h3>EMP_INFO_MOCK.first_name</h3>
+              <h3>{EMP_INFO_MOCK[0].first_name}</h3>
             </div>
             <div className="profile-form-section-info">
               <h6>Last Name</h6>
-              <h3>Singh</h3>
+              <h3>{EMP_INFO_MOCK[0].last_name}</h3>
             </div>
             <div className="profile-form-section-info">
-              <h6>Last Name</h6>
-              <h3>Singh</h3>
+              <h6>Date of Birth</h6>
+              <h3>{EMP_INFO_MOCK[0].dob}</h3>
+            </div>
+            <div className="profile-form-section-info">
+              <h6>Country</h6>
+              <h3>{EMP_INFO_MOCK[0].country}</h3>
+            </div>
+            <div className="profile-form-section-info">
+              <h6>Martial Status</h6>
+              <h3>{EMP_INFO_MOCK[0].maritalStatus}</h3>
+            </div>
+            <div className="profile-form-section-info">
+              <h6>State</h6>
+              <h3>{EMP_INFO_MOCK[0].state}</h3>
+            </div>
+            <div className="profile-form-section-info">
+              <h6>City</h6>
+              <h3>{EMP_INFO_MOCK[0].city}</h3>
+            </div>
+            <div className="profile-form-section-info">
+              <h6>Address</h6>
+              <h3>{EMP_INFO_MOCK[0].address}</h3>
+            </div>
+            <div className="profile-form-section-info">
+              <h6>Contact</h6>
+              <h3>{EMP_INFO_MOCK[0].phoneNo}</h3>
+            </div>
+            <div className="profile-form-section-info">
+              <h6>Personal Mail</h6>
+              <h3>{EMP_INFO_MOCK[0].pmail}</h3>
             </div>
           </section>
           <section className="profile-form-section">
