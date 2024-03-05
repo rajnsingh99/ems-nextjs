@@ -22,7 +22,7 @@ body {
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 1rem;
 }
 
@@ -43,13 +43,3 @@ body {
     background-color: #3b3b3b;
 }
 
-.profile-form-section {
-    display: list-item;
-    flex-basis: 300px;
-    flex-grow: 1;
-    list-style: none;
-}
-
-.profile-image-section1 h5 {
-    text-align: center;
-}
