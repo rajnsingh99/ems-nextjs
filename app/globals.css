@@ -137,27 +137,3 @@ body {
   justify-content: center;
 }
 
-
-/* Employee Profile Section  */
-
-.profile-form-section {
-    display: list-item;
-    flex-basis: 300px;
-    flex-grow: 1;
-    list-style: none;
-}
-
-.profile-image-section1 h5 {
-    text-align: center;
-}
-
-.profile-form-section div {
-  display: flex;
-  flex-direction: column;
-  gap: .3rem;
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 15px;
-  background-color: grey;
-}
-

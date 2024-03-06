@@ -13,11 +13,11 @@ export default function Profile() {
           <section className="profile-form-section">
             <div className="profile-form-section-info">
               <h6>First Name</h6>
-              <h3>{EMP_INFO_MOCK[0].first_name}</h3>
+              <h4>{EMP_INFO_MOCK[0].first_name}</h4>
             </div>
             <div className="profile-form-section-info">
               <h6>Last Name</h6>
-              <h3>{EMP_INFO_MOCK[0].last_name}</h3>
+              <h4>{EMP_INFO_MOCK[0].last_name}</h4>
             </div>
             <div className="profile-form-section-info">
               <h6>Date of Birth</h6>
@@ -49,18 +49,34 @@ export default function Profile() {
             </div>
             <div className="profile-form-section-info">
               <h6>Personal Mail</h6>
-              <h3>{EMP_INFO_MOCK[0].pmail}</h3>
+              <h3>{EMP_INFO_MOCK[0].pemail}</h3>
             </div>
           </section>
           <section className="profile-form-section">
-            <h5>PROFILE IMAGE</h5>
-            <Image
-              src="/man.png"
-              width={200}
-              height={200}
-              alt="Profile Image"
-              className="profile-userimage"
-            />
+            <div className="profile-form-section-info">
+              <h6>Employee Id</h6>
+              <h3>{EMP_INFO_MOCK[0].empId}</h3>
+            </div>
+            <div className="profile-form-section-info">
+              <h6>Role</h6>
+              <h3>{EMP_INFO_MOCK[0].role}</h3>
+            </div>
+            <div className="profile-form-section-info">
+              <h6>Department</h6>
+              <h3>{EMP_INFO_MOCK[0].department}</h3>
+            </div>
+            <div className="profile-form-section-info">
+              <h6>Date of Joining</h6>
+              <h3>{EMP_INFO_MOCK[0].doj}</h3>
+            </div>
+            <div className="profile-form-section-info">
+              <h6>Status</h6>
+              <h3>{EMP_INFO_MOCK[0].status}</h3>
+            </div>
+            <div className="profile-form-section-info">
+              <h6>Rating</h6>
+              <h3>{EMP_INFO_MOCK[0].raiting}</h3>
+            </div>
           </section>
           <section className="profile-form-section">
             <h5>PROFILE IMAGE</h5>
