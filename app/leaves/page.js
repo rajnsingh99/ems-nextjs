@@ -44,6 +44,127 @@ export default function Leaves() {
             </ul>
           </section>
         </div>
+        <div className="lm-apply-container">
+          <h4>Apply for leaves</h4>
+          <div className="lm-apply-sub-container">
+            <div className="lm-apply-leave-type-container">
+              <section className="lm-apply-leave-type-section">
+                <p>Leave Type</p>
+                <select name="leave-type-name" id="leave-type-id">
+                  <option value="annual-leave">Annual Leave</option>
+                  <option value="emergency-leave">Emergency Leave</option>
+                  <option value="medical-leave">Medical Leave</option>
+                  <option value="unpaid-leave">Unpaid Leave</option>
+                </select>
+              </section>
+              <section className="lm-apply-leave-reason-section">
+                <p>Reasons</p>
+                <textarea type="text" />
+              </section>
+            </div>
+            <div className="lm-apply-ad-container">
+              <section className="lm-apply-ad-lp-section">
+                <p>Leave Period</p>
+                <label>Date picker</label>
+              </section>
+              <section className="lm-apply-ad-nod-section">
+                <p>No of Days</p>
+                <label>3</label>
+              </section>
+              <section className="lm-apply-ad-lb-section">
+                <p>Leave Balance</p>
+                <label>27</label>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div className="lm-records-container">
+          <h4>Records</h4>
+          <div className="lm-record-table-container">
+            <table className="lm-records-table">
+              <tbody>
+                <tr>
+                  <th>Leave Type</th>
+                  <th>Date</th>
+                  <th>Days</th>
+                  <th>Remark</th>
+                </tr>
+                <tr>
+                  <td>Medical Leave</td>
+                  <td>9-Jan-1994</td>
+                  <td>1</td>
+                  <td>Sick leave</td>
+                </tr>
+                <tr>
+                  <td>Medical Leave</td>
+                  <td>9-Jan-1994</td>
+                  <td>1</td>
+                  <td>Sick leave</td>
+                </tr>
+                <tr>
+                  <td>Medical Leave</td>
+                  <td>9-Jan-1994</td>
+                  <td>1</td>
+                  <td>Sick leave</td>
+                </tr>
+                <tr>
+                  <td>Medical Leave</td>
+                  <td>9-Jan-1994</td>
+                  <td>1</td>
+                  <td>Sick leave</td>
+                </tr>
+                <tr>
+                  <td>Medical Leave</td>
+                  <td>9-Jan-1994</td>
+                  <td>1</td>
+                  <td>Sick leave</td>
+                </tr>
+                <tr>
+                  <td>Medical Leave</td>
+                  <td>9-Jan-1994</td>
+                  <td>1</td>
+                  <td>Sick leave</td>
+                </tr>
+                <tr>
+                  <td>Medical Leave</td>
+                  <td>9-Jan-1994</td>
+                  <td>1</td>
+                  <td>Sick leave</td>
+                </tr>
+                <tr>
+                  <td>Medical Leave</td>
+                  <td>9-Jan-1994</td>
+                  <td>1</td>
+                  <td>Sick leave</td>
+                </tr>
+                <tr>
+                  <td>Medical Leave</td>
+                  <td>9-Jan-1994</td>
+                  <td>1</td>
+                  <td>Sick leave</td>
+                </tr>
+                <tr>
+                  <td>Medical Leave</td>
+                  <td>9-Jan-1994</td>
+                  <td>1</td>
+                  <td>Sick leave</td>
+                </tr>
+                <tr>
+                  <td>Medical Leave</td>
+                  <td>9-Jan-1994</td>
+                  <td>1</td>
+                  <td>Sick leave</td>
+                </tr>
+                <tr>
+                  <td>Medical Leave</td>
+                  <td>9-Jan-1994</td>
+                  <td>1</td>
+                  <td>Sick leave</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </BaseLayout>
   );

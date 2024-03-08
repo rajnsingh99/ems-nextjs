@@ -72,3 +72,83 @@ body {
   display: flex;
   gap: 5px;
 }
+
+.lm-records-container {
+  padding: 1.5rem;
+  border: 1px solid grey;
+  margin-top: 2rem;
+  height: 450px;
+  overflow: scroll;
+  border-radius: 8px;
+  box-shadow: 2px 2px 1px grey;
+}
+
+.lm-records-table tbody tr th {
+  padding: 1rem;
+}
+
+.lm-records-table tbody tr td {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 1rem;
+  align-content: center;
+  justify-content: center;
+}
+
+.lm-apply-container {
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 8px;
+  border: 1px solid grey;
+  box-shadow: 2px 2px 1px grey;
+}
+
+.lm-apply-sub-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rem;
+  padding-top: 1.5rem;
+}
+
+.lm-apply-leave-type-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lm-apply-leave-type-container section {
+  display: flex;
+  gap: 1rem;
+}
+
+.lm-apply-leave-type-section p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+}
+
+.lm-apply-leave-type-section select {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+
+.lm-apply-leave-reason-section textarea {
+  height: 125px;
+  width: 550px;
+  padding: 0.5rem;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.lm-apply-ad-container section {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem;
+  margin-bottom: 20px;
+  background-color: aliceblue;
+}
+
+.lm-apply-ad-container section p {
+  width: 250px;
+}
