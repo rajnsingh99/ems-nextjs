@@ -1,77 +1,143 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: white;
+  background-color: white;
 }
 
 .profile-form {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    margin-left: 1rem;
-    margin-right: 2rem;
-    margin-top: 1rem;
-    flex-direction: column;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-left: 1rem;
+  margin-right: 2rem;
+  padding-top: 2rem;
+  flex-direction: column;
 }
 
 .profile-form-container {
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 1rem;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1rem;
 }
 
 .profile-form-action {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .profile-form-action button {
-    width: 200px;
-    border: none;
-    padding: .8rem;
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    border-radius: 1rem;
-    color: whitesmoke;
-    text-decoration: solid;
-    background-color: #3b3b3b;
+  width: 250px;
+  border: none;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: medium;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  color: whitesmoke;
+  text-decoration: solid;
+  background-color: #282c30;
 }
 
 .profile-form-section {
-    display: list-item;
-    flex-basis: 300px;
-    flex-grow: 1;
-    list-style: none;
+  display: list-item;
+  flex-basis: 300px;
+  flex-grow: 1;
+  list-style: none;
+}
+
+.profile-form-section h3 {
+  font-size: medium;
+  text-align: center;
+  padding-bottom: 1rem;
 }
 
 .profile-image-section h5 {
-    text-align: center;
+  text-align: center;
 }
 
 .profile-form-section div {
   display: flex;
   flex-direction: column;
-  gap: .3rem;
+  gap: 0.5rem;
   margin-top: 1rem;
-  margin-right: 5rem;
-  padding: .5rem;
-  border-radius: 15px;
-  background-color: grey;
+  margin-right: 3rem;
+  padding: 0.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 17px;
+  background-color: #faf9f6;
 }
 
 .profile-form-section-info h6 {
-    font-size: xx-small;
-    padding-left: .5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: x-small;
+  font-weight: 600;
+  color: grey;
+  padding-left: 0.5rem;
 }
 
 .profile-form-section-info h4 {
-    font-size: medium;
-    padding-left: .5rem;
+  font-size: medium;
+  color: black;
+  font-weight: 700;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  padding-left: 0.5rem;
 }
 
+.profile-form-section-pi {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 350px;
+  flex-grow: 2;
+  gap: 2.5rem;
+}
+
+.profile-userimage {
+  background-color: white;
+}
+
+.profile-form-userImageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+.profile-form-userImageContainer h4 {
+  text-align: center;
+}
+
+.profile-form-techStackContainer {
+  min-height: max-content;
+}
+
+.profile-form-techStackContainer h4 {
+  text-align: center;
+}
+
+.profile-form-techStackList {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.profile-form-techStackList li {
+  padding: 1.25rem;
+  width: fit-content;
+  border-radius: 50px;
+  overflow: hidden;
+  margin: 0.5rem;
+  font-size: medium;
+  font-weight: 500;
+  background-color: #faf9f6;
+}

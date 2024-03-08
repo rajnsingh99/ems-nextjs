@@ -11,7 +11,7 @@ export default function SideBar() {
         <aside className="sidebar">
           <div className="sidebar-top">
             <Image
-              src="/boy.png"
+              src="/images.jpeg"
               width={80}
               height={80}
               className="sidebar-logo"

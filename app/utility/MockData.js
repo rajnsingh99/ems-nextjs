@@ -10,5 +10,28 @@ export const EMP_INFO_MOCK = [
     address: "Bengali Square",
     phoneNo: "7489256050",
     pemail: "rajnsingh99@gmail.com",
+    empId: 3285340,
+    role: "SSR Advance",
+    department: "Enterprise Technology",
+    doj: "3 June 2021",
+    status: "Active",
+    raiting: "A+",
   },
+];
+
+export const EMP_SKILL_SET = [
+  "Java",
+  "Spring boot 3",
+  "ReactJs",
+  "Azure",
+  "Kubernetes",
+  "Jenkins",
+  "Artificial Intelligence",
+  "Juint",
+  "Kafka",
+  "Javascript",
+  "Nodejs",
+  "Agile",
+  "Software Architect",
+  "Marketing",
 ];
