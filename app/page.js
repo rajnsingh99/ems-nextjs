@@ -1,11 +1,11 @@
-"use client";
 import React from "react";
-import Cookies from "js-cookie";
+import { cookies } from "next/headers";
 import { useRouter } from "next/navigation";
 import BaseLayout from "./components/BaseLayout";
 
 export default function Home() {
-  const username = Cookies.get('username');
+  const username = cookies().get("username");
+  console.log("username " + username);
   // if (username === undefined) {
   //   const router = useRouter();
   //   router.push('/login');
@@ -14,12 +14,12 @@ export default function Home() {
   // }
 
   const handler = () => {
-    console.log('callled');
+    console.log("callled");
   };
 
   return (
     <>
-    <button onClick={handler}> button dddf</button>
+      <button onClick={handler}> button dddf</button>
     </>
   );
 }

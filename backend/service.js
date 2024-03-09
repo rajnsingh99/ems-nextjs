@@ -1,4 +1,4 @@
-import { db } from ".dbInit.js";
+import db  from "./dbInit.js";
 
 function validateEmployee(email, empId, pass) {
   const statement = db.prepare(`
@@ -8,7 +8,7 @@ function validateEmployee(email, empId, pass) {
   return statement.run();
 }
 
-function onboardEmployee(data) {
+export function onboardEmployee(data) {
   console.log("onboardEmployee ---> " + data);
   const auth = {
     empId: data.empId,
@@ -21,7 +21,7 @@ function onboardEmployee(data) {
   insertAuth(auth);
   insertEmployeeDetail(data);
 }
-
+ 
 function insertAuth(auth) {
   console.log("insertAuth ---> " + auth);
   const statement = db.prepare(`
@@ -38,7 +38,7 @@ function insertAuth(auth) {
   console.log("Auth added: " + statement.run().lastInsertRowid);
 }
 
-function insertEmployeeDetail(data) {
+export function insertEmployeeDetail(data) {
   console.log("insertEmployeeDetail ---> " + data);
   const statement = db.prepare(`
         INSERT INTO EMPLOYEE_DETAILS VALUES (
@@ -65,7 +65,7 @@ function insertEmployeeDetail(data) {
   console.log("Employee detail added: " + statement.run().lastInsertRowid);
 }
 
-function getEmployee(empId) {
+export default function getEmployee(empId) {
   console.log(`getEmployee ${empId}`);
   const statement = db.prepare(`
         SELECT * FROM EMPLOYEE_DETAILS WHERE empId=${empId}
@@ -74,8 +74,3 @@ function getEmployee(empId) {
   return statement.run();
 }
 
-module.exports = {
-  getEmployee,
-  insertEmployeeDetail,
-  validateEmployee,
-};

@@ -57,7 +57,7 @@ body {
   font-size: medium;
   border-radius: 2rem;
   border: 1px solid white;
-  background-color: whitesmoke;
+  background-color: white;
 }
 
 .suggestion-list {
@@ -77,8 +77,7 @@ body {
 
 .dashboard-pc-container {
   height: 100%;
-  padding: 1rem;
+  padding: 0rem 1rem 1rem 1rem;
   border-radius: 1rem;
-  background-color: #e7e6e8;
   overflow: scroll;
 }

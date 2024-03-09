@@ -1,5 +1,7 @@
 import express from "express";
-import { validateEmployee, getEmployee, onboardEmployee } from "./service.js";
+import getEmployee from "./service.js";
+import validateEmployee from "./service.js";
+import insertEmployeeDetail from "./service.js";
 
 const app = express();
 const PORT = process.env.PORT || 9999;

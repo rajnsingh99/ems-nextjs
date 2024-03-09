@@ -47,14 +47,12 @@ body {
 }
 
 .sidebar-top {
-  width: min-content;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid whitesmoke;
 }
 
 .sidebar-logo {
@@ -65,8 +63,10 @@ body {
 }
 
 .sidebar-top-title {
-  color: whitesmoke;
-  margin-right: 3rem;
+  color: white;
+  font-size: large;
+  font-family: "Courier New", Courier, monospace;
+  margin-right: 5rem;
 }
 
 .sidebar-list {
@@ -83,19 +83,20 @@ body {
   font-size: 1rem;
   text-decoration: none;
   color: black;
-  padding: 0.8rem 1rem;
-  background-color: #f3f4f6;
+  padding: 0.8rem 1rem 0.8rem 1rem;
+  background-color: white;
   margin-bottom: 1rem;
-  border-radius: 0.8rem;
+  border-radius: 10px;
 }
 
 .sidebar-icon {
-  font-size: 1.2rem;
+  align-self: center;
   display: inline-block;
 }
 
 .sidebar-icon-title {
-  margin-left: 0.5rem;
+  align-self: center;
+  margin-left: 1rem;
 }
 
 .dashboard-pc-list {
@@ -120,12 +121,13 @@ body {
   width: inherit;
   display: flex;
   gap: 1rem;
+  background-color: white;
 }
 
 .pc-profilepic {
   height: 100%;
   width: 125px;
-  padding-right: 0.5rem;
+  padding-right: 5px;
   background-color: red;
 }
 

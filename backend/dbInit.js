@@ -4,13 +4,12 @@ db.pragma("journal_mode = WAL");
 
 function initAuthCredentials() {
   const query = db.prepare(
-    `
-   CREATE TABLE IF NOT EXISTS AUTH_CRED (
+    `CREATE TABLE IF NOT EXISTS AUTH_CRED (
        id INTEGER PRIMARY KEY AUTOINCREMENT,
        empId INTEGER NON NULL UNIQUE,
        role TEXT NOT NULL,
        email TEXT NOT NULL UNIQUE,
-       pass TEXT NOT NULL UNIQUE
+       pass TEXT NOT NULL UNIQUE,
        passHash TEXT NOT NULL
     )
 `
@@ -64,6 +63,4 @@ function initLeaves() {
 initAuthCredentials();
 initEmployeeDetails();
 
-module.exports = Object.freeze({
-  db: db,
-});
+export default db;

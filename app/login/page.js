@@ -1,25 +1,19 @@
-
-import Cookies from "js-cookie";
+"use client";
+import LoginForm from "../components/LoginForm.js";
+import useCustomRoute from "./../components/useCustomRoute.js";
 
 export default function Login() {
+  const formSubmitCallback = (formData) => {
+    console.log("data " + formData.get("username"));
+    useCustomRoute("/dashboard");
+  };
 
-    async function submit(formData) {
-        'use server'
-        console.log('Submit called');
-        Cookies.set('username', 'raj');
-    }
-
-    return (
-        <>
-            <div className='login-form-container'>
-                <h2>Login</h2>
-                <form className='login-form' action={submit}>
-                    <input placeholder='Username' />
-                    <input placeholder='Password' />
-                    <button type='submit'>Login</button>
-                </form>
-            </div>
-
-        </>
-    );
+  return (
+    <>
+      <div className="login-form-container">
+        <h2>Login</h2>
+        <LoginForm formSubmitCallback={formSubmitCallback} />
+      </div>
+    </>
+  );
 }
