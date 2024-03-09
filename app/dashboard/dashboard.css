@@ -1,79 +1,84 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    color: #fff;
-    background-color: black ;
+  background-color: #282c30;
 }
 
-.container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-right: 2rem;
-    margin-bottom: 1rem;
+.dashboard-base-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 1.5rem;
+  gap: 0.75rem;
+  background-color: white;
 }
 
 .searchbar-wrapper {
-    height: fit-content;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    padding: 1rem;
-    border-radius: 1.5rem;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    background-color: #3b3b3b;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  background-color: #e7e6e8;
 }
 
 .employee-wrapper {
-    display: flex;
+  display: flex;
 }
 
 .sidebar-logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    color: #222222;
-    background-color: brown;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  color: #222222;
+  background-color: white;
 }
 
 .employee-name-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: 1rem;
-    margin-left: .5rem;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  padding: 10px;
 }
 
 .searchBar-input {
-    margin-top: 1.5rem;
-    margin-bottom: 3px;
-    padding: 1rem;
-    border-radius: 2rem;
-    border: 1px solid #3b3b3b;
-    background-color: #636363;
+  margin-top: 1.5rem;
+  margin-bottom: 3px;
+  padding: 1rem;
+  font-size: medium;
+  border-radius: 2rem;
+  border: 1px solid white;
+  background-color: whitesmoke;
 }
 
 .suggestion-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .suggestion-list li {
-    list-style-type: none;
-    padding: 1rem;
-    width: fit-content;
-    border-radius: 50px;
-    overflow: hidden;
-    background-color: #222222;
+  list-style-type: none;
+  padding: 1rem;
+  width: fit-content;
+  border-radius: 50px;
+  overflow: hidden;
+  background-color: #e7e6e8;
+}
+
+.dashboard-pc-container {
+  height: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #e7e6e8;
+  overflow: scroll;
 }

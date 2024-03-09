@@ -71,6 +71,10 @@ body {
 .leaves-employee-info-leave-section ul li {
   display: flex;
   gap: 5px;
+  font-size: medium;
+  background-color: #e7e6e8;
+  padding: 5px 1rem 5px 1rem;
+  border-radius: 5px;
 }
 
 .lm-records-container {
@@ -106,7 +110,7 @@ body {
 .lm-apply-sub-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10rem;
+  gap: 15rem;
   padding-top: 1.5rem;
 }
 
@@ -146,7 +150,8 @@ body {
   gap: 1rem;
   padding: 0.75rem;
   margin-bottom: 20px;
-  background-color: aliceblue;
+  background-color: #e7e6e8;
+  border-radius: 5px;
 }
 
 .lm-apply-ad-container section p {

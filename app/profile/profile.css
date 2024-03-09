@@ -5,7 +5,12 @@
 }
 
 body {
+  background-color: #282c30;
+}
+
+.ep-base-container {
   background-color: white;
+  border-radius: 1.5rem;
 }
 
 .profile-form {
@@ -71,7 +76,7 @@ body {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   border-radius: 17px;
-  background-color: #faf9f6;
+  background-color: #e7e6e8;
 }
 
 .profile-form-section-info h6 {
@@ -139,5 +144,5 @@ body {
   margin: 0.5rem;
   font-size: medium;
   font-weight: 500;
-  background-color: #faf9f6;
+  background-color: #e7e6e8;
 }
