@@ -1,7 +1,5 @@
 import express from "express";
-import getEmployee from "./service.js";
-import validateEmployee from "./service.js";
-import insertEmployeeDetail from "./service.js";
+import { validateEmployee } from "./service.js";
 
 const app = express();
 const PORT = process.env.PORT || 9999;
@@ -20,12 +18,20 @@ app.get("/employee/:empId", (req, res) => {
 
 app.get("/validate", (req, res) => {
   res.contentType("application/json");
-  res.send(
-    JSON.stringify(
-      validateEmployee(req.query.email, req.query.empId, req.query.pass)
-    )
+  const data = validateEmployee(
+    req.query.email.replace("@globant.com", ""),
+    req.query.empId.replace("@globant.com", ""),
+    req.query.pass
   );
-  res.end();
+
+  console.log(`validate employee ${data}`);
+  if (data === undefined) {
+    res.statusMessage = "Current password does not match";
+    res.status(403).end();
+  } else {
+    res.send(JSON.stringify(data));
+    res.end();
+  }
 });
 
 app.listen(PORT, console.log(`Server started on ${PORT}`));

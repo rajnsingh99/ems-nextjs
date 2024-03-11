@@ -1,18 +1,12 @@
 "use client";
-import LoginForm from "../components/LoginForm.js";
-import useCustomRoute from "./../components/useCustomRoute.js";
+import LoginForm from "../components/LoginForm";
 
 export default function Login() {
-  const formSubmitCallback = (formData) => {
-    console.log("data " + formData.get("username"));
-    useCustomRoute("/dashboard");
-  };
-
   return (
     <>
       <div className="login-form-container">
         <h2>Login</h2>
-        <LoginForm formSubmitCallback={formSubmitCallback} />
+        <LoginForm />
       </div>
     </>
   );
