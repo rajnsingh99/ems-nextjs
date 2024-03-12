@@ -1,27 +1,40 @@
 import { COUNTRY_LIST } from "../utility/CountryData";
+import Image from "next/image";
 
 export default function Onboard() {
   return (
     <>
       <form className="form-container">
         <h4>Name</h4>
-        <div className="form-name-container">
-          <div className="form-first-name">
-            <input placeholder="Raj"></input>
-            <p>First Name</p>
+        <section className="form-info-section">
+          <div className="form-info-metadata">
+            <div className="form-first-name">
+              <input placeholder="Raj"></input>
+              <p>First Name</p>
+            </div>
+            <div className="form-last-name">
+              <input placeholder="Singh"></input>
+              <p>Last Name</p>
+            </div>
+            <h4>E-mail</h4>
+            <input type="email" placeholder="rajnsingh99@gmail.com"></input>
+            <h4>Password</h4>
+            <input placeholder="************"></input>
+            <h4>Phone</h4>
+            <input type="number" placeholder="+91 8770349309"></input>
           </div>
-
-          <div className="form-last-name">
-            <input placeholder="Singh"></input>
-            <p>Last Name</p>
+          <div className="form-info-avatar">
+            <Image
+              src="/hacker.png"
+              width={250}
+              height={250}
+              alt="Employee image"
+              className="form-info-avatar-logo"
+            />
+            <button>Change Avatar</button>
           </div>
-        </div>
-        <h4>E-mail</h4>
-        <input placeholder="mymail@gmail.com"></input>
-        <h4>Phone</h4>
-        <input type="number" placeholder="9999999999"></input>
-
-        <section className="form-address-section-container">
+        </section>
+        <section className="form-address-section">
           <h4>Address</h4>
           <input></input>
           <p>Street Address</p>
@@ -55,13 +68,12 @@ export default function Onboard() {
                 <p>Country</p>
               </div>
               <div>
-                <input></input>
+                <input type="number" placeholder="452001"></input>
                 <p>Postal Code</p>
               </div>
             </section>
           </div>
         </section>
-
         <button className="form-submit-btn" type="submit">
           Submit
         </button>
