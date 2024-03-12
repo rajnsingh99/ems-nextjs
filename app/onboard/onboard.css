@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-image: linear-gradient(to bottom right, #8e2de2, #4a00e0);
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: medium;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+h4 {
+  padding: 1rem 0rem 1rem 0rem;
+}
+
+.form-container {
+  width: 60%;
+  height: 95%;
+  min-height: 800px;
+  margin: auto;
+  padding: 3rem 3rem 1rem 3rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
+}
+
+.form-submit-btn {
+  width: 75%;
+  align-self: center;
+  background-color: #4a00e0;
+  border: 1px solid white;
+  border-radius: 12px;
+  color: whitesmoke;
+  font-size: larger;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.form-name-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-name-container div {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-first-name {
+  padding: 0rem 1.5rem 0rem 0rem;
+}
+
+.form-last-name {
+  padding: 0rem 0rem 0rem 0rem;
+}
+
+.form-name-container div p {
+  color: grey;
+  font-size: small;
+  padding: 5px 0px 2px 5px;
+  color: #282c30;
+}
+
+.form-address-section-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-address-section-container p {
+  padding: 5px 0px 1rem 5px;
+  color: #282c30;
+  font-size: small;
+}
+
+.form-address-metadata {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-address-metadata section {
+  display: inherit;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1rem;
+}
+
+.form-address-section1 {
+  padding-right: 1.5rem;
+}
+
+.form-address-metadata section p {
+  padding: 5px 0px 2px 5px;
+  color: #282c30;
+  font-size: small;
+}
+
+.form-address-metadata section select {
+  width: 300px;
+  display: flex;
+  font-size: large;
+  justify-content: center;
+  padding: 0.65rem;
+  border-radius: 5px;
+}

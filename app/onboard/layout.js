@@ -1,7 +1,7 @@
-import "./login.css";
+import "./onboard.css";
 
 export const metadata = {
-  title: "Login Portal",
+  title: "Onboarding Portal",
   description: "",
 };
 
