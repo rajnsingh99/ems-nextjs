@@ -10,13 +10,15 @@ export default function SideBar() {
       <div className="sidebar-wrapper">
         <aside className="sidebar">
           <div className="sidebar-top">
-            <Image
-              src="/images.jpeg"
-              width={80}
-              height={80}
-              className="sidebar-logo"
-              alt="logo"
-            />
+            <div className="sidebar-top-image-container">
+              <Image
+                src="/ems_logo.png"
+                width={100}
+                height={100}
+                className="sidebar-logo"
+                alt="logo"
+              />
+            </div>
             <p className="sidebar-top-title">Employee Management System</p>
           </div>
 

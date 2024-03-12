@@ -5,14 +5,14 @@
 }
 
 body {
-  background-color: #282c30;
+  background-color: #4a00e0;
 }
 
 .dashboard-base-container {
   display: flex;
   flex-direction: column;
-  padding: 1rem 2rem 1rem 2rem;
-  border-radius: 1.5rem;
+  padding: 1rem 2rem 0rem 2rem;
+  border-radius: 1rem;
   gap: 0.75rem;
   background-color: white;
 }
@@ -77,7 +77,11 @@ body {
 
 .dashboard-pc-container {
   height: 100%;
-  padding: 0rem 1rem 1rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
   border-radius: 1rem;
   overflow: scroll;
+}
+
+.dashboard-pc-container ul {
+  justify-content: center;
 }

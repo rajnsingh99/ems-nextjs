@@ -13,7 +13,6 @@ body {
 .baselayout {
   display: flex;
   height: 100vh;
-  gap: 2rem;
 }
 
 .sidebar-wrapper {
@@ -42,22 +41,24 @@ body {
   width: 15rem;
   height: 100%;
   padding: 1rem;
-  background-color: #282c30;
+  background-image: linear-gradient(to bottom right, #8e2de2, #4a00e0);
   transition: all 0.3 linear;
 }
 
 .sidebar-top {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 1rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid whitesmoke;
 }
 
+.sidebar-top-image-container {
+  display: flex;
+}
+
 .sidebar-logo {
-  width: 3.4rem;
-  height: 3.5rem;
   object-fit: cover;
   border-radius: 1rem;
 }
@@ -65,8 +66,8 @@ body {
 .sidebar-top-title {
   color: white;
   font-size: large;
-  font-family: "Courier New", Courier, monospace;
-  margin-right: 5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-right: 4rem;
 }
 
 .sidebar-list {

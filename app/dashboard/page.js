@@ -28,7 +28,7 @@ export default function Dashboard() {
               width={80}
               height={80}
               alt="Employee image"
-              className="sidebar-logo"
+              className="dashboard-user-image"
             />
             <section className="employee-name-wrapper">
               <p className="welcome-txt">Welcome Back</p>
