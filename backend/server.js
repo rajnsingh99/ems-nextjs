@@ -1,5 +1,5 @@
 import express from "express";
-import { validateEmployee } from "./service.js";
+import { validateEmployee, getAllEmployee } from "./service.js";
 
 const app = express();
 const PORT = process.env.PORT || 9999;
@@ -7,19 +7,25 @@ const PORT = process.env.PORT || 9999;
 app.get("/validate", (req, res) => {
   res.contentType("application/json");
   const data = validateEmployee(
-    req.query.email.replace("@globant.com", ""),
-    req.query.empId.replace("@globant.com", ""),
+    req.query.email,
+    req.query.empId,
     req.query.pass
   );
 
   console.log(`validate employee ${data}`);
-  if (data === undefined) {
-    res.statusMessage = "Current password does not match";
+  console.log(Object.keys(data).length);
+  if (data === undefined || Object.keys(data).length === 0) {
+    res.statusMessage = "Invalid Credentials";
     res.status(403).end();
   } else {
     res.send(JSON.stringify(data));
     res.end();
   }
+});
+
+app.get("/employees", (req, res) => {
+  const data = getAllEmployee();
+  console.log(JSON.stringify(data));
 });
 
 app.post("/onboard", (req, res) => {

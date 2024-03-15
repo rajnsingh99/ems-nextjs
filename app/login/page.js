@@ -8,7 +8,7 @@ import Link from "next/link.js";
 
 export default function Login() {
   const [loginStatus, authAction] = useFormState(submitCredentialsAction, {
-    status: "",
+    status: undefined,
   });
   return (
     <>
@@ -16,8 +16,8 @@ export default function Login() {
         <div className="login-form-ems-logo-container">
           <Image
             src="/ems_logo.png"
-            width={185}
-            height={185}
+            width={165}
+            height={165}
             alt="Employee image"
             className="login-form-ems-logo"
           />
@@ -25,13 +25,17 @@ export default function Login() {
         <h1>Login</h1>
         <h3>{LOGIN_PAGE_DESC}</h3>
         <form className="login-form" action={authAction}>
-          {loginStatus.status === undefined ? <p>failed</p> : null}
           <input
             name="mailEmployeeId"
             type="email"
             placeholder="Email / Employee ID"
           />
           <input name="password" type="password" placeholder="Password" />
+          {loginStatus.status !== undefined ? (
+            <label className="login-form-failure-msg">
+              {loginStatus.status}
+            </label>
+          ) : null}
           <button type="submit">Login</button>
         </form>
         <p>

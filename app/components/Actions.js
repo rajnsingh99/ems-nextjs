@@ -12,7 +12,7 @@ async function submitCredentialsAction(prevState, queryData) {
   const res = await fetch(query);
   console.log("submitCredentialsAction " + res.status);
   if (!res.ok) {
-    return { status: undefined };
+    return { status: "Invalid Credentials !!" };
   } else {
     console.log(`Response data ${res}`);
     redirect("/dashboard");

@@ -5,11 +5,17 @@ export default function defaultFunction() {
 }
 
 function validateEmployee(email, empId, pass) {
-  const query = `SELECT * from AUTH_CRED WHERE email='${email}' OR empId='${empId}'`;
-  console.log(query);
-  const statement = db.prepare(query);
+  const statement = db.prepare(
+    `SELECT * from AUTH_CRED WHERE email='${email}' OR empId='${empId}'`
+  );
 
-  return statement.get();
+  return statement.all();
+}
+
+function getAllEmployee() {
+  const statement = db.prepare(`SELECT * from EMPLOYEE_DETAILS`);
+
+  return statement.all();
 }
 
 function onboardEmployee(data) {
@@ -78,4 +84,4 @@ function insertAuth(auth) {
   console.log("Auth added: " + statement.run().lastInsertRowid);
 }
 
-export { validateEmployee, getEmployee, insertEmployeeDetail };
+export { validateEmployee, getEmployee, insertEmployeeDetail, getAllEmployee };

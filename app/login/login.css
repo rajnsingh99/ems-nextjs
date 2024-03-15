@@ -15,7 +15,7 @@ body {
   width: 550px;
   height: 850px;
   margin: auto;
-  display: flex;
+  display: inherit;
   align-items: center;
   border-radius: 10px;
   flex-direction: column;
@@ -27,13 +27,20 @@ body {
 .login-form-ems-logo-container {
   width: 200px;
   height: 200px;
-  display: flex;
+  display: inherit;
   background-color: whitesmoke;
   border-radius: 50%;
 }
 
 .login-form-ems-logo {
   margin: auto;
+}
+
+.login-form-container p {
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1rem;
 }
 
 .login-form-container h1 {
@@ -64,6 +71,16 @@ body {
   border-bottom: 1px solid grey;
 }
 
+.login-form-failure-msg {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 25px;
+  background-color: #ff4545;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
 .login-form button {
   margin-top: 3rem;
   padding: 15px;
@@ -79,13 +96,6 @@ body {
 .login-form button:hover {
   background-image: linear-gradient(to bottom right, #8e2de2, #4a00e0);
   color: white;
-}
-
-.login-form-container p {
-  padding: 1rem;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 1rem;
 }
 
 .login-form-get-onboarded {
