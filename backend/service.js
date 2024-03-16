@@ -14,7 +14,6 @@ function validateEmployee(email, empId, pass) {
 
 function getAllEmployee() {
   const statement = db.prepare(`SELECT * from EMPLOYEE_DETAILS`);
-
   return statement.all();
 }
 
@@ -65,7 +64,7 @@ function getEmployee(empId) {
         SELECT * FROM EMPLOYEE_DETAILS WHERE empId=${empId}
     `);
 
-  return statement.run();
+  return statement.get();
 }
 
 function insertAuth(auth) {
@@ -80,7 +79,6 @@ function insertAuth(auth) {
             ${auth.passHash}  
         )
     `);
-
   console.log("Auth added: " + statement.run().lastInsertRowid);
 }
 

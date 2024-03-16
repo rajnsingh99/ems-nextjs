@@ -9,7 +9,7 @@ function purgeData() {
 }
 
 function initAuthCredentials() {
-  const query = db.prepare(
+  db.prepare(
     `CREATE TABLE IF NOT EXISTS AUTH_CRED (
        id INTEGER PRIMARY KEY AUTOINCREMENT,
        empId INTEGER NON NULL UNIQUE,
@@ -19,14 +19,12 @@ function initAuthCredentials() {
        passHash TEXT NOT NULL
     )
 `
-  );
-
-  query.run();
+  ).run();
   console.log("initAuthCredentials completed");
 }
 
 function initEmployeeDetails() {
-  const query = db.prepare(
+  db.prepare(
     `
        CREATE TABLE IF NOT EXISTS EMPLOYEE_DETAILS (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -50,22 +48,8 @@ function initEmployeeDetails() {
         skillSet TEXT NOT NULL 
         )
     `
-  );
-
-  console.log(query.run());
+  ).run();
   console.log("initEmployeeDetails completed");
-}
-
-function initLeaves() {
-  const query = db.prepare(
-    `
-    CREATE TABLE IF NOT EXISTS LEAVES (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        empId INTEGER NON NULL UNIQUE,
-        balance INTEGER NOT NULL,
-        )
-    `
-  );
 }
 
 // purgeData();

@@ -1,12 +1,31 @@
 "use client";
 
-import BaseLayout from "../components/BaseLayout";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import BaseLayout from "../components/BaseLayout";
 import ProfileCard from "../components/ProfileCard";
+import { getAllEmployee, getEmployee } from "../components/Actions";
 
 export default function Dashboard() {
   const [searchInput, setSearchInput] = useState("");
+  const [dashboardData, setDashboardData] = useState({});
+
+  useEffect(() => {
+    async function getDashboardData() {
+      const empDetailRes = await getEmployee(50001);
+      const empListRes = await getAllEmployee();
+
+      setDashboardData(() => {
+        return {
+          empDetail: empDetailRes,
+          empList: empListRes,
+          isLoading: true,
+        };
+      });
+    }
+    getDashboardData();
+  }, []);
+
   const handleChange = (e) => {
     e.preventDefault();
     setSearchInput(e.target.value);
