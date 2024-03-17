@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json } from "express";
 import { validateEmployee, getAllEmployee, getEmployee } from "./service.js";
 
 const app = express();
@@ -23,6 +23,8 @@ app.post("/onboard", (req, res) => {
 });
 
 app.get("/employee", (req, res) => {
+  // const data = getEmployee(req.query.empId);
+  // console.log("data + \n " + JSON.stringify(data));
   res.send(JSON.stringify(getEmployee(req.query.empId))).end();
 });
 

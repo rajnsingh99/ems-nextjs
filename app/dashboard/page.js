@@ -6,36 +6,37 @@ import BaseLayout from "../components/BaseLayout";
 import ProfileCard from "../components/ProfileCard";
 import { getAllEmployee, getEmployee } from "../components/Actions";
 
+const dashboardPlaceholder = {
+  empDetail: {
+    firstName: "",
+    lastName: "",
+    photo: "boy.png",
+  },
+  empList: [],
+  isLoading: false,
+};
+
 export default function Dashboard() {
   const [searchInput, setSearchInput] = useState("");
-  const [dashboardData, setDashboardData] = useState({});
+  const [dashboardData, setDashboardData] = useState(dashboardPlaceholder);
+
+  const searchCallbackHandler = () => {};
 
   useEffect(() => {
     async function getDashboardData() {
       const empDetailRes = await getEmployee(50001);
       const empListRes = await getAllEmployee();
-
       setDashboardData(() => {
         return {
           empDetail: empDetailRes,
           empList: empListRes,
           isLoading: true,
+          searchInput: searchInput,
         };
       });
     }
     getDashboardData();
   }, []);
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    setSearchInput(e.target.value);
-  };
-
-  if (searchInput.length > 0) {
-    countries.filter((country) => {
-      return country.name.includes(searchInput);
-    });
-  }
 
   return (
     <BaseLayout>
@@ -43,7 +44,7 @@ export default function Dashboard() {
         <div className="searchbar-wrapper">
           <div className="employee-wrapper">
             <Image
-              src="/hacker.png"
+              src={`/${dashboardData.empDetail.photo}`}
               width={80}
               height={80}
               alt="Employee image"
@@ -51,14 +52,18 @@ export default function Dashboard() {
             />
             <section className="employee-name-wrapper">
               <p className="welcome-txt">Welcome Back</p>
-              <p className="employee-name">Raj Singh</p>
+              <p className="employee-name">
+                {dashboardData.empDetail.firstName +
+                  " " +
+                  dashboardData.empDetail.lastName}
+              </p>
             </section>
           </div>
           <input
             type="text"
             className="searchBar-input"
             placeholder="Search here"
-            onChange={handleChange}
+            onChange={searchCallbackHandler}
             value={searchInput}
           />
         </div>
@@ -68,99 +73,15 @@ export default function Dashboard() {
           <li>Technician</li>
           <li>Support Staff</li>
         </ul>
-
         <section className="dashboard-pc-container">
           <ul className="dashboard-pc-list">
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
-            <li>
-              <ProfileCard />
-            </li>
+            {dashboardData.empList.map((empData) => {
+              return (
+                <li>
+                  <ProfileCard empData={empData} />
+                </li>
+              );
+            })}
           </ul>
         </section>
       </main>
