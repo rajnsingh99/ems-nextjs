@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import BaseLayout from "../components/BaseLayout";
 import ProfileCard from "../components/ProfileCard";
 import { getAllEmployee, getEmployee } from "../components/Actions";
+import { SUGGESION_LIST } from "../utility/SuggestionMock";
 
 const dashboardPlaceholder = {
   empDetail: {
@@ -68,10 +69,9 @@ export default function Dashboard() {
           />
         </div>
         <ul className="suggestion-list">
-          <li>All</li>
-          <li>Employees</li>
-          <li>Technician</li>
-          <li>Support Staff</li>
+          {SUGGESION_LIST.map((suggestion) => {
+            return <li>{suggestion}</li>;
+          })}
         </ul>
         <section className="dashboard-pc-container">
           <ul className="dashboard-pc-list">
