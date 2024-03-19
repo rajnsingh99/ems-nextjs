@@ -21,7 +21,14 @@ export default function Dashboard() {
   const [searchInput, setSearchInput] = useState("");
   const [dashboardData, setDashboardData] = useState(dashboardPlaceholder);
 
-  const searchCallbackHandler = () => {};
+  const searchInputHandler = (event) => {
+    event.preventDefault();
+    setSearchInput(event.target.value);
+  };
+
+  const suggestionItemHandler = (suggestion) => {
+    searchInput(suggestion);
+  };
 
   useEffect(() => {
     async function getDashboardData() {
@@ -32,12 +39,33 @@ export default function Dashboard() {
           empDetail: empDetailRes,
           empList: empListRes,
           isLoading: true,
-          searchInput: searchInput,
         };
       });
     }
     getDashboardData();
   }, []);
+
+  let empFilteredList = [];
+  if (searchInput.length > 0) {
+    dashboardData.empList.map((empData) => {
+      if (
+        empData.firstName.includes(searchInput) ||
+        empData.lastName.includes(searchInput) ||
+        empData.department.includes(searchInput) ||
+        empData.firstName.toLowerCase().includes(searchInput) ||
+        empData.lastName.toLowerCase().includes(searchInput) ||
+        empData.department.toLowerCase().includes(searchInput) ||
+        empData.firstName.toUpperCase().includes(searchInput) ||
+        empData.lastName.toUpperCase().includes(searchInput) ||
+        empData.department.toUpperCase().includes(searchInput)
+      ) {
+        console.log("Pushed " + empData.firstName);
+        empFilteredList.push(empData);
+      }
+    });
+  } else {
+    empFilteredList = dashboardData.empList;
+  }
 
   return (
     <BaseLayout>
@@ -64,18 +92,24 @@ export default function Dashboard() {
             type="text"
             className="searchBar-input"
             placeholder="Search here"
-            onChange={searchCallbackHandler}
+            onChange={searchInputHandler}
             value={searchInput}
           />
         </div>
         <ul className="suggestion-list">
           {SUGGESION_LIST.map((suggestion) => {
-            return <li>{suggestion}</li>;
+            return (
+              <li>
+                <button onClick={(suggestion) => suggestionItemHandler}>
+                  {suggestion}
+                </button>
+              </li>
+            );
           })}
         </ul>
         <section className="dashboard-pc-container">
           <ul className="dashboard-pc-list">
-            {dashboardData.empList.map((empData) => {
+            {empFilteredList.map((empData) => {
               return (
                 <li>
                   <ProfileCard empData={empData} />
