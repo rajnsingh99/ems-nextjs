@@ -4,10 +4,28 @@ export default function defaultFunction() {
   console.log("Default function");
 }
 
-function validateEmployee(email, empId, pass) {
+function validateEmployee(email, empId) {
   const statement = db.prepare(
     `SELECT * from AUTH_CRED WHERE email='${email}' OR empId='${empId}'`
   );
+
+  return statement.all();
+}
+
+function getEmployee(empId) {
+  console.log(`getEmployee ${empId}`);
+  const statement = db.prepare(`
+        SELECT * FROM EMPLOYEE_DETAILS WHERE empId=${empId}
+    `);
+
+  return statement.get();
+}
+
+function getLeaveRecordData(empId) {
+  console.log(`getLeaveRecordData ${empId}`);
+  const statement = db.prepare(`
+      SELECT * FROM LEAVE_RECORDS WHERE empId=${empId}
+  `);
 
   return statement.all();
 }
@@ -29,6 +47,21 @@ function onboardEmployee(data) {
 
   insertAuth(auth);
   insertEmployeeDetail(data);
+}
+
+function insertAuth(auth) {
+  console.log("insertAuth ---> " + auth);
+  const statement = db.prepare(`
+        INSERT INTO AUTH_CRED VALUES (
+            null,
+            ${auth.empId},
+            ${auth.role},
+            ${auth.email},
+            ${auth.pass},
+            ${auth.passHash}  
+        )
+    `);
+  console.log("Auth added: " + statement.run().lastInsertRowid);
 }
 
 function insertEmployeeDetail(data) {
@@ -58,28 +91,10 @@ function insertEmployeeDetail(data) {
   console.log("Employee detail added: " + statement.run().lastInsertRowid);
 }
 
-function getEmployee(empId) {
-  console.log(`getEmployee ${empId}`);
-  const statement = db.prepare(`
-        SELECT * FROM EMPLOYEE_DETAILS WHERE empId=${empId}
-    `);
-
-  return statement.get();
-}
-
-function insertAuth(auth) {
-  console.log("insertAuth ---> " + auth);
-  const statement = db.prepare(`
-        INSERT INTO AUTH_CRED VALUES (
-            null,
-            ${auth.empId},
-            ${auth.role},
-            ${auth.email},
-            ${auth.pass},
-            ${auth.passHash}  
-        )
-    `);
-  console.log("Auth added: " + statement.run().lastInsertRowid);
-}
-
-export { validateEmployee, getEmployee, insertEmployeeDetail, getAllEmployee };
+export {
+  validateEmployee,
+  getEmployee,
+  insertEmployeeDetail,
+  getAllEmployee,
+  getLeaveRecordData,
+};
