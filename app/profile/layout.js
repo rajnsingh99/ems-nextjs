@@ -1,4 +1,3 @@
-import BaseLayout from "../components/BaseLayout";
 import "./profile.css";
 
 export const metadata = {

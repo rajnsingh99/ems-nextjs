@@ -20,15 +20,7 @@ const dashboardPlaceholder = {
 export default function Dashboard() {
   const [searchInput, setSearchInput] = useState("");
   const [dashboardData, setDashboardData] = useState(dashboardPlaceholder);
-
-  const searchInputHandler = (event) => {
-    event.preventDefault();
-    setSearchInput(event.target.value);
-  };
-
-  const suggestionItemHandler = (suggestion) => {
-    searchInput(suggestion);
-  };
+  let empFilteredList = [];
 
   useEffect(() => {
     async function getDashboardData() {
@@ -45,8 +37,26 @@ export default function Dashboard() {
     getDashboardData();
   }, []);
 
-  let empFilteredList = [];
+  const suggestionClickHandler = (suggestion) => {
+    empFilteredList = [];
+    if (suggestion === "All") {
+      empFilteredList = dashboardData.empList;
+    } else {
+      dashboardData.empList.map((empData) => {
+        if (empData.designation === suggestion) {
+          empFilteredList.push(empData);
+        }
+      });
+    }
+  };
+
+  const searchInputHandler = (event) => {
+    event.preventDefault();
+    setSearchInput(event.target.value);
+  };
+
   if (searchInput.length > 0) {
+    empFilteredList = [];
     dashboardData.empList.map((empData) => {
       if (
         empData.firstName.includes(searchInput) ||
@@ -99,8 +109,10 @@ export default function Dashboard() {
         <ul className="suggestion-list">
           {SUGGESION_LIST.map((suggestion) => {
             return (
-              <li>
-                <button onClick={(suggestion) => suggestionItemHandler}>
+              <li key={suggestion}>
+                <button
+                  onClick={(suggestion) => suggestionClickHandler(suggestion)}
+                >
                   {suggestion}
                 </button>
               </li>
@@ -111,7 +123,7 @@ export default function Dashboard() {
           <ul className="dashboard-pc-list">
             {empFilteredList.map((empData) => {
               return (
-                <li>
+                <li key={empData.empId}>
                   <ProfileCard empData={empData} />
                 </li>
               );

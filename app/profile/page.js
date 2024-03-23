@@ -1,111 +1,110 @@
-"user client";
-
+"use client";
 import BaseLayout from "../components/BaseLayout";
 import Image from "next/image";
-import { EMP_INFO_MOCK, EMP_SKILL_SET } from "../utility/MockData.js";
+import { useEffect, useState } from "react";
+import { getEmployee } from "../components/Actions";
+
+const PERSONAL_INFO = [
+  { id: "firstName", label: "First Name" },
+  { id: "lastName", label: "Last Name" },
+  { id: "dob", label: "Date of Birth" },
+  { id: "maritalStatus", label: "Marital Status" },
+  { id: "country", label: "Country" },
+  { id: "state", label: "State" },
+  { id: "city", label: "City" },
+  { id: "address", label: "Address" },
+  { id: "contact", label: "Contact" },
+  { id: "personalEmail", label: "Personal Email" },
+];
+
+const EMPLOYMENT_INFO_TAB = [
+  { id: "empId", label: "Employee Id" },
+  { id: "role", label: "Role" },
+  { id: "department", label: "Department" },
+  { id: "doj", label: "Date of Joining" },
+  { id: "statud", label: "Status" },
+  { id: "raiting", label: "Raiting" },
+];
 
 export default function Profile() {
+  const [profileData, setProfileData] = useState({
+    empDetail: {},
+    isLoading: true,
+  });
+
+  useEffect(() => {
+    async function getProfileData() {
+      const empDetailRes = await getEmployee(50001);
+      setProfileData(() => {
+        return {
+          empDetail: empDetailRes,
+          isLoading: false,
+        };
+      });
+    }
+
+    getProfileData();
+  }, []);
+
   return (
     <BaseLayout>
       <main className="ep-base-container">
-        <form className="profile-form">
-          <div className="profile-form-container">
-            <section className="profile-form-section">
-              <h3>Personal Info</h3>
-              <div className="profile-form-section-info">
-                <h6>First Name</h6>
-                <h4>{EMP_INFO_MOCK[0].first_name}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>Last Name</h6>
-                <h4>{EMP_INFO_MOCK[0].last_name}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>Date of Birth</h6>
-                <h4>{EMP_INFO_MOCK[0].dob}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>Country</h6>
-                <h4>{EMP_INFO_MOCK[0].country}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>Martial Status</h6>
-                <h4>{EMP_INFO_MOCK[0].maritalStatus}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>State</h6>
-                <h4>{EMP_INFO_MOCK[0].state}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>City</h6>
-                <h4>{EMP_INFO_MOCK[0].city}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>Address</h6>
-                <h4>{EMP_INFO_MOCK[0].address}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>Contact</h6>
-                <h4>{EMP_INFO_MOCK[0].phoneNo}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>Personal Mail</h6>
-                <h4>{EMP_INFO_MOCK[0].pemail}</h4>
-              </div>
+        {profileData.isLoading ? (
+          <h4> loading</h4>
+        ) : (
+          <form className="profile-form">
+            <div className="profile-form-container">
+              <section className="profile-form-section">
+                <h3>Personal Info</h3>
+                {PERSONAL_INFO.map((info) => {
+                  return (
+                    <div>
+                      <h6>{info.label}</h6>
+                      <h4>{profileData.empDetail[info.id]}</h4>
+                    </div>
+                  );
+                })}
+              </section>
+              <section className="profile-form-section">
+                <h3>Employment info</h3>
+                {EMPLOYMENT_INFO_TAB.map((info) => {
+                  return (
+                    <div>
+                      <h6>{info.label}</h6>
+                      <h4>{profileData.empDetail[info.id]}</h4>
+                    </div>
+                  );
+                })}
+              </section>
+              <section className="profile-form-section-pi">
+                <div className="profile-form-userImageContainer">
+                  <h4>Employee Image</h4>
+                  <Image
+                    src={`/${profileData.empDetail.photo}`}
+                    width={200}
+                    height={200}
+                    alt="Profile Image"
+                    className="profile-userimage"
+                  />
+                </div>
+                <div className="profile-form-techStackContainer">
+                  <h4>Skill Set</h4>
+                  <ul className="profile-form-techStackList">
+                    {profileData.empDetail.skillSet
+                      .split(",")
+                      .map((skill, index) => {
+                        return <li key={index}>{skill.replace("-", " ")}</li>;
+                      })}
+                  </ul>
+                </div>
+              </section>
+            </div>
+            <section className="profile-form-action">
+              <button>Save Changes</button>
+              <button>Cancel</button>
             </section>
-            <section className="profile-form-section">
-              <h3>Employment info</h3>
-              <div className="profile-form-section-info">
-                <h6>Employee Id</h6>
-                <h4>{EMP_INFO_MOCK[0].empId}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>Role</h6>
-                <h4>{EMP_INFO_MOCK[0].role}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>Department</h6>
-                <h4>{EMP_INFO_MOCK[0].department}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>Date of Joining</h6>
-                <h4>{EMP_INFO_MOCK[0].doj}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>Status</h6>
-                <h4>{EMP_INFO_MOCK[0].status}</h4>
-              </div>
-              <div className="profile-form-section-info">
-                <h6>Rating</h6>
-                <h4>{EMP_INFO_MOCK[0].raiting}</h4>
-              </div>
-            </section>
-            <section className="profile-form-section-pi">
-              <div className="profile-form-userImageContainer">
-                <h4>Employee Image</h4>
-                <Image
-                  src="/man.png"
-                  width={200}
-                  height={200}
-                  alt="Profile Image"
-                  className="profile-userimage"
-                />
-              </div>
-              <div className="profile-form-techStackContainer">
-                <h4>Skill Set</h4>
-                <ul className="profile-form-techStackList">
-                  {EMP_SKILL_SET.map((stack, index) => {
-                    return <li key={index}>{stack}</li>;
-                  })}
-                </ul>
-              </div>
-            </section>
-          </div>
-          <section className="profile-form-action">
-            <button>Save Changes</button>
-            <button>Cancel</button>
-          </section>
-        </form>
+          </form>
+        )}
       </main>
     </BaseLayout>
   );
