@@ -10,12 +10,12 @@ const app = express();
 const PORT = process.env.PORT || 9999;
 
 app.get("/validate", (req, res) => {
-  const data = validateEmployee(req.query.email, req.query.empId);
-
+  const data = validateEmployee(req.query.email, req.query.empId)[0];
   if (data === undefined || Object.keys(data).length === 0) {
     res.status(403).end();
   } else {
-    res.send(JSON.stringify(data)).end();
+    console.log("validateEmployee " + JSON.stringify(data));
+    res.status(200).send(JSON.stringify(data)).end();
   }
 });
 

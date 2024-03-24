@@ -2,12 +2,6 @@ import Database from "better-sqlite3";
 const db = new Database("ems.db", { verbose: console.log });
 db.pragma("journal_mode = WAL");
 
-function purgeData() {
-  db.prepare("DROP TABLE IF EXISTS AUTH_CRED").run();
-  db.prepare("DROP TABLE IF EXISTS EMPLOYEE_DETAILS").run();
-  console.log("Purge completed");
-}
-
 function initAuthCredentials() {
   db.prepare(
     `CREATE TABLE IF NOT EXISTS AUTH_CRED (
@@ -45,6 +39,12 @@ function initEmployeeDetails() {
         phoneNo INTEGER,
         maritalStatus TEXT NOT NULL,
         raiting TEXT NOT NULL,
+        personalEmail TEXT,
+        employementStatus NOT NULL,
+        annualLeaves NOT NULL,
+        emergencyLeaves NOT NULL,
+        medicalLeaves NOT NULL,
+        unpaidLeaves NOT NULL,
         skillSet TEXT NOT NULL 
         )
     `
@@ -52,8 +52,29 @@ function initEmployeeDetails() {
   console.log("initEmployeeDetails completed");
 }
 
+function initLeaveRecords() {
+  db.prepare(
+    `
+       CREATE TABLE IF NOT EXISTS LEAVE_RECORDS (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        empId INTEGER NON NULL,
+        leaveType TEXT NOT NULL,
+        startDate TEXT NOT NULL,
+        endDate TEXT NOT NULL,
+        nod INTEGER NOT NULL,
+        reason TEXT NOT NULL,
+        approver TEXT NOT NULL,
+        remark TEXT,
+        status TEXT NOT NULL
+        )
+    `
+  ).run();
+  console.log("initLeaveRecords completed");
+}
+
 // purgeData();
 initAuthCredentials();
 initEmployeeDetails();
+initLeaveRecords();
 
 export default db;
