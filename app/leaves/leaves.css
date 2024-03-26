@@ -4,10 +4,13 @@
 }
 
 body {
+  width: 100%;
   background-color: #4a00e0;
 }
 
 .base-container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   padding: 1rem 2rem 1rem 2rem;
@@ -45,14 +48,14 @@ body {
 
 .leaves-employee-info-sub-section-contanct-list li {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   align-items: center;
   border: 1px solid grey;
   border-radius: 1rem;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .leaves-employee-info-leave-section {

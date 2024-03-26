@@ -3,6 +3,7 @@ import BaseLayout from "../components/BaseLayout";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getEmployee } from "../components/Actions";
+import { DotLoader } from "react-spinners";
 
 const PERSONAL_INFO = [
   { id: "firstName", label: "First Name" },
@@ -13,7 +14,7 @@ const PERSONAL_INFO = [
   { id: "state", label: "State" },
   { id: "city", label: "City" },
   { id: "address", label: "Address" },
-  { id: "contact", label: "Contact" },
+  { id: "phoneNo", label: "Contact" },
   { id: "personalEmail", label: "Personal Email" },
 ];
 
@@ -22,7 +23,7 @@ const EMPLOYMENT_INFO_TAB = [
   { id: "role", label: "Role" },
   { id: "department", label: "Department" },
   { id: "doj", label: "Date of Joining" },
-  { id: "statud", label: "Status" },
+  { id: "employementStatus", label: "Employement Status" },
   { id: "raiting", label: "Raiting" },
 ];
 
@@ -50,7 +51,7 @@ export default function Profile() {
     <BaseLayout>
       <main className="ep-base-container">
         {profileData.isLoading ? (
-          <h4> loading</h4>
+          <DotLoader className="loading-spinner" color="#8e2de2" />
         ) : (
           <form className="profile-form">
             <div className="profile-form-container">
@@ -79,13 +80,15 @@ export default function Profile() {
               <section className="profile-form-section-pi">
                 <div className="profile-form-userImageContainer">
                   <h4>Employee Image</h4>
-                  <Image
-                    src={`/${profileData.empDetail.photo}`}
-                    width={200}
-                    height={200}
-                    alt="Profile Image"
-                    className="profile-userimage"
-                  />
+                  <div className="profile-userimage-container">
+                    <Image
+                      src={`/${profileData.empDetail.photo}`}
+                      width={200}
+                      height={200}
+                      alt="Profile Image"
+                      className="profile-userimage"
+                    />
+                  </div>
                 </div>
                 <div className="profile-form-techStackContainer">
                   <h4>Skill Set</h4>

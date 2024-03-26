@@ -5,11 +5,17 @@ import { useFormState } from "react-dom";
 import { submitCredentialsAction } from "./../components/Actions.js";
 import { LOGIN_PAGE_DESC } from "../utility/AppConstants.js";
 import Link from "next/link.js";
+import { redirect } from "next/navigation.js";
 
 export default function Login() {
   const [loginStatus, authAction] = useFormState(submitCredentialsAction, {
     status: undefined,
+    authenticated: false,
   });
+
+  if (loginStatus.authenticated) {
+    redirect("/dashboard");
+  }
   return (
     <>
       <div className="login-form-container">

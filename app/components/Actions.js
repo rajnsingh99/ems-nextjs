@@ -1,7 +1,5 @@
 "use server";
-import { redirect } from "next/navigation";
 import { saveSession } from "../utility/SessionUtils.js";
-import { resolve } from "styled-jsx/css";
 
 async function submitCredentialsAction(prevState, queryData) {
   const query = `http://localhost:9999/validate?email=${queryData.get(
@@ -13,18 +11,19 @@ async function submitCredentialsAction(prevState, queryData) {
   const res = await fetch(query);
   console.log("submitCredentialsAction " + res.status);
   if (!res.ok) {
-    return { status: "Invalid Credentials !!" };
+    return { status: "Invalid Credentials !!", authenticated: false };
   } else {
-    console.log(`Login Success with response:\n${res}`);
-    await saveSession(res);
-    redirect("/dashboard");
+    const empData = await res.json();
+    console.log(`Login Success with empData: \n ${JSON.stringify(empData)}`);
+    await saveSession(empData);
+    return { status: "Welcome ", authenticated: true };
   }
 }
 
 async function getAllEmployee() {
   const query = "http://localhost:9999/employees";
   const response = await fetch(query);
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 1500));
   if (response.ok) {
     return response.json();
   } else {
@@ -34,6 +33,7 @@ async function getAllEmployee() {
 
 async function getEmployee(empId) {
   const query = `http://localhost:9999/employee?empId=${empId}`;
+  await new Promise((resolve) => setTimeout(resolve, 500));
   const response = await fetch(query);
   if (response.ok) {
     return response.json();
@@ -42,4 +42,19 @@ async function getEmployee(empId) {
   }
 }
 
-export { submitCredentialsAction, getEmployee, getAllEmployee };
+async function getLeaveRecords(empId) {
+  const query = `http://localhost:9999/leaves?empId=${empId}`;
+  const response = await fetch(query);
+  if (response.ok) {
+    return response.json();
+  } else {
+    return undefined;
+  }
+}
+
+export {
+  submitCredentialsAction,
+  getEmployee,
+  getAllEmployee,
+  getLeaveRecords,
+};

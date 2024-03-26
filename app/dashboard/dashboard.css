@@ -21,11 +21,12 @@ body {
 .searchbar-wrapper {
   height: fit-content;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   padding: 1.5rem;
   border-radius: 1.5rem;
-  background-color: #e7e6e8;
+  margin-bottom: 0.5rem;
+  color: white;
+  background-image: linear-gradient(to bottom right, #8e2de2, #4a00e0);
 }
 
 .employee-wrapper {
@@ -46,7 +47,8 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
-  font-size: 1rem;
+  font-size: large;
+  font-weight: bold;
   margin-left: 0.5rem;
   padding: 10px;
 }
@@ -55,6 +57,7 @@ body {
   margin-top: 1.5rem;
   margin-bottom: 3px;
   padding: 1rem;
+  padding-left: 1.5rem;
   font-size: medium;
   border-radius: 2rem;
   border: 1px solid white;
@@ -69,11 +72,33 @@ body {
 
 .suggestion-list li {
   list-style-type: none;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.dashboard-user-image {
+  background-color: white;
+  border-radius: 50%;
+  padding: 1px;
+}
+
+.suggestion-list li button {
+  list-style-type: none;
   padding: 1rem;
   width: fit-content;
   border-radius: 50px;
   overflow: hidden;
-  background-color: #e7e6e8;
+  font-size: medium;
+  font-weight: 500;
+  border: 1.75px solid #8e2de2;
+  background-color: white;
+  cursor: pointer;
+}
+
+.suggestion-list li button:hover {
+  background-image: linear-gradient(to bottom right, #8e2de2, #4a00e0);
+  color: white;
+  font-weight: bold;
 }
 
 .dashboard-pc-container {
@@ -85,4 +110,9 @@ body {
 
 .dashboard-pc-container ul {
   margin: auto;
+}
+
+.dashboard-pc-container ul li {
+  margin-bottom: 0.5rem;
+  cursor: pointer;
 }

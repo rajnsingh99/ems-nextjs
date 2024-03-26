@@ -15,8 +15,25 @@ body {
   height: 100vh;
 }
 
+.loading-spinner {
+  margin: auto;
+}
+
 .sidebar-wrapper {
   position: relative;
+}
+
+.sidebar-logout-btn {
+  position: absolute;
+  padding: 0.75rem;
+  width: 85%;
+  bottom: 2rem;
+  font-weight: 600;
+  font-size: medium;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .sidebar-wrapper-btn {
@@ -108,7 +125,7 @@ body {
 
 .dashboard-pc-list li {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   list-style-type: none;
   width: 345px;
   height: 120px;
@@ -134,8 +151,20 @@ body {
 
 .pc-info-wrapper {
   height: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
-  gap: 3.5rem;
+  gap: 1.5rem;
   flex-direction: column;
-  justify-content: center;
+}
+
+.pc-info-name {
+  font-size: medium;
+  font-weight: 600;
+}
+
+.pc-info-desgination {
+  font-size: small;
+  font-weight: 500;
+  color: #808080;
 }

@@ -4,9 +4,9 @@ export default function defaultFunction() {
   console.log("Default function");
 }
 
-function validateEmployee(email, empId) {
+function validateEmployee(email, empId, password) {
   const statement = db.prepare(
-    `SELECT * from AUTH_CRED WHERE email='${email}' OR empId='${empId}'`
+    `SELECT * from AUTH_CRED WHERE pass='${password}' AND email='${email}' OR empId='${empId}'`
   );
 
   return statement.all();

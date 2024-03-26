@@ -5,11 +5,13 @@
 }
 
 body {
+  width: 100%;
   background-color: #4a00e0;
 }
 
 .ep-base-container {
   width: 100%;
+  display: flex;
   background-color: white;
   border-radius: 1rem;
 }
@@ -48,6 +50,7 @@ body {
   color: whitesmoke;
   text-decoration: solid;
   background-color: #282c30;
+  cursor: pointer;
 }
 
 .profile-form-section {
@@ -77,7 +80,7 @@ body {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   border-radius: 17px;
-  background-color: #e7e6e8;
+  border: 1.75px solid #8e2de2;
 }
 
 .profile-form-section div h6 {
@@ -90,8 +93,8 @@ body {
 
 .profile-form-section div h4 {
   font-size: medium;
-  color: black;
-  font-weight: 700;
+  color: #282c30;
+  font-weight: 600;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-style: italic;
   padding-left: 0.5rem;
@@ -106,8 +109,16 @@ body {
 }
 
 .profile-userimage {
-  background-color: white;
+  background-color: transparent;
 }
+/* 
+.profile-userimage-container {
+  width: 275px;
+  height: 275px;
+  border: 2px solid black;
+  display: flex;
+  border-radius: 50%;
+} */
 
 .profile-form-userImageContainer {
   display: flex;
