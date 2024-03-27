@@ -1,5 +1,5 @@
 "use server";
-import { saveSession } from "../utility/SessionUtils.js";
+import { clearSession, saveSession } from "../utility/SessionUtils.js";
 
 async function submitCredentialsAction(prevState, queryData) {
   const query = `http://localhost:9999/validate?email=${queryData.get(
@@ -33,8 +33,8 @@ async function getAllEmployee() {
 
 async function getEmployee(empId) {
   const query = `http://localhost:9999/employee?empId=${empId}`;
-  await new Promise((resolve) => setTimeout(resolve, 500));
   const response = await fetch(query);
+  await new Promise((resolve) => setTimeout(resolve, 500));
   if (response.ok) {
     return response.json();
   } else {
@@ -52,9 +52,14 @@ async function getLeaveRecords(empId) {
   }
 }
 
+async function logoutAction() {
+  await clearSession();
+}
+
 export {
   submitCredentialsAction,
   getEmployee,
   getAllEmployee,
   getLeaveRecords,
+  logoutAction,
 };

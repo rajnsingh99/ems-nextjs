@@ -13,7 +13,6 @@ function validateEmployee(email, empId, password) {
 }
 
 function getEmployee(empId) {
-  console.log(`getEmployee ${empId}`);
   const statement = db.prepare(`
         SELECT * FROM EMPLOYEE_DETAILS WHERE empId=${empId}
     `);
@@ -22,7 +21,6 @@ function getEmployee(empId) {
 }
 
 function getLeaveRecordData(empId) {
-  console.log(`getLeaveRecordData ${empId}`);
   const statement = db.prepare(`
       SELECT * FROM LEAVE_RECORDS WHERE empId=${empId}
   `);

@@ -1,15 +1,14 @@
 import { cookies } from "next/headers";
 
 export async function getSession() {
-  return cookies().get("session")?.value;
+  return cookies().get("session");
 }
 
 export async function saveSession(empData) {
-  console.log("saveSession " + empData);
-  cookies().set("session", empData, { httpOnly: true });
-  console.log("saveSession saved for empId: " + empData.empId);
+  cookies().set("session", empData.empId, { httpOnly: true });
+  console.log("saveSession saved for empId: " + getSession("session"));
 }
 
 export async function clearSession() {
-  cookies().set("session", "", { expires: new Date(0) });
+  cookies().delete("session");
 }

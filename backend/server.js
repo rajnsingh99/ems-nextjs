@@ -28,11 +28,23 @@ app.post("/onboard", (req, res) => {
 });
 
 app.get("/employee", (req, res) => {
-  res.send(JSON.stringify(getEmployee(req.query.empId))).end();
+  const empDetail = getEmployee(req.query.empId);
+  console.log(`empDetail: ${JSON.stringify(empDetail)}`);
+  if (empDetail === undefined) {
+    res.status(501).send(JSON.stringify(empDetail)).end();
+  } else {
+    console.log("value send");
+    res.send(JSON.stringify(empDetail)).end();
+  }
 });
 
 app.get("/employees", (req, res) => {
-  res.send(JSON.stringify(getAllEmployee())).end();
+  const empList = getAllEmployee();
+  if (empList === undefined) {
+    res.status(501).send(JSON.stringify(empList)).end();
+  } else {
+    res.status(200).send(JSON.stringify(empList)).end();
+  }
 });
 
 app.get("/leaves", (req, res) => {
