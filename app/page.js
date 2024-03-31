@@ -1,7 +1,6 @@
 import { redirect } from "next/navigation.js";
 import { getSession } from "./utility/SessionUtils.js";
 import { isObjectEmpty } from "./utility/Tools.js";
-import { cookies } from "next/headers.js";
 
 export default async function Home() {
   const session = await getSession();

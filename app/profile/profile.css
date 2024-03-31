@@ -16,6 +16,16 @@ body {
   border-radius: 1rem;
 }
 
+.spinner-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.spinner {
+  margin: auto;
+}
+
 .profile-form {
   width: 100%;
   height: 100%;
